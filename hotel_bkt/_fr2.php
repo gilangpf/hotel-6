@@ -1,0 +1,38 @@
+<?php
+require '../connect.php';
+
+$min=$_GET['min']; //harga min
+$max=$_GET['max']; //harga max
+$tipe=$_GET['tipe']; //tipe hotel
+$destinasi=$_GET['destinasi']; //destinasi angkot
+
+$querysearch    ="SELECT DISTINCT hotel.id, hotel.name, st_x(st_centroid(hotel.geom)) as lon, st_y(st_centroid(hotel.geom)) as lat from hotel left join detail_room on hotel.id = detail_room.id_hotel left join room on room.id=detail_room.id_room left join hotel_type on hotel.id_type=hotel_type.id left join detail_hotel on detail_hotel.id_hotel=hotel.id left join angkot on detail_hotel.id_angkot=angkot.id where ";
+if ($min!="") {
+    $querysearch    .="room.price >= ".$min." and room.price <= ".$max." ";
+}
+if($min!=""&&$tipe!=""){
+    $querysearch    .="and ";
+}
+if($tipe!=""){
+    $querysearch    .="hotel_type.id = '$tipe' ";
+}
+if ($min!=""&&$destinasi!="") {
+  $querysearch  .="and ";
+}else if($tipe!=""&&$destinasi!=""){
+  $querysearch  .="and ";
+}
+if ($destinasi!="") {
+    $querysearch    .="angkot.id = '$destinasi'";   
+}
+$hasil=pg_query($querysearch);
+while($baris = pg_fetch_array($hasil))
+    {
+          $id=$baris['id'];
+          $name=$baris['name'];
+          $lat=$baris['lat'];
+          $lng=$baris['lon'];
+          $dataarray[]=array('id'=>$id,'name'=>$name, 'lng'=>$lng, 'lat'=>$lat);
+    }
+echo json_encode ($dataarray);
+
+?>
