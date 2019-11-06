@@ -18,7 +18,7 @@
                       <ul class="treeview-menu">
                         <!-- <li style="margin-top:10px"><input id="inputradius" type="range" name="inputradius" data-highlight="true" min="1" max="10" value="1"></li>                             
                         <li><a onclick="init();hotel_sekitar_user();" style="cursor:pointer;background:none">Search</a></li> -->
-                         <div class=" form-group" style="color: white;" > <!-- <br> -->
+                         <div class=" form-group" style="color: black;font-size:10pt;" > <!-- <br> -->
                           <!-- <label>Based On Radius</label><br> -->
                           <label for="inputradius" style="font-size: 10pt";>Radius : </label>
                           <label  id="nilai"  style="font-size: 10pt";>0</label> m
@@ -93,7 +93,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white"> Minimum Price</span>
+                            <span style="background: none;color: black;font-size:10pt"> Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -101,7 +101,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: white"> Maximum Price</span>
+                            <span style="background: none;color: black;font-size:10pt"> Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -116,7 +116,7 @@
                       <li class="sub">
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Facility</a>
                         <ul class="sub">
-                          <li style="margin-top:10px">
+                          <li style="margin-top:10px;font-size: 10">
                             <!-- <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="select_facility"> -->
                               <!-- <option value=""> - </option> -->
                               <?php                      
@@ -302,7 +302,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white">Minimum Price</span>
+                            <span style="background: none;color: black;font-size:10pt">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -310,7 +310,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: white">Maximum Price</span>
+                            <span style="background: none;color: black;font-size:10pt">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -506,7 +506,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white">Minimum Price</span>
+                            <span style="background: none;color: black;font-size:10pt">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr1_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -514,7 +514,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: white">Maximum Price</span>
+                            <span style="background: none;color: black;font-size:10pt">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr1_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -614,7 +614,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white">Minimum Price</span>
+                            <span style="background: none;color: black;font-size:10pt">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -622,7 +622,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: white">Maximum Price</span>
+                            <span style="background: none;color: black;font-size:10pt">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
