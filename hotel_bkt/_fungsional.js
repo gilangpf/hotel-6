@@ -88,7 +88,6 @@ function _fs2(){
               var lng = row.lng;
               var lat = row.lat;
               var id2 = row.id2;
-              var name2 = row.name2;
               var lng2 = row.lng2;
               var lat2 = row.lat2;
               $('#kanan_table').append("<tr><td>"+name+"</td><td><a role='button' class='btn btn-success fa fa-info' onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
@@ -207,8 +206,8 @@ function _fs4(){
   }
 
   $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
-  console.log(server+'_fs4.php?tw='+x+'&tipe='+y+'&min='+min+'&max='+max);
-  $.ajax({url: server+'_fs4.php?tw='+x+'&tipe='+y+'&min='+min+'&max='+max, data: "", dataType: 'json', success: function(rows){ 
+  console.log(server+'_fs4.php?tw='+y+'&tipe='+z+'&category='+x);
+  $.ajax({url: server+'_fs4.php?tw='+y+'&tipe='+z+'&category='+x, data: "", dataType: 'json', success: function(rows){ 
     if(rows == null)
     {
       alert('Data Did Not Exist !');
@@ -220,9 +219,11 @@ function _fs4(){
         var lng = row.lng;
         var lat = row.lat;
         var id2 = row.id2;
-        var name2 = row.name2;
         var lng2 = row.lng2;
         var lat2 = row.lat2;
+        var id3 = row.id3;
+        var lng3 = row.lng3;
+        var lat3 = row.lat3;
         $('#kanan_table').append("<tr><td>"+name+"</td><td><a role='button' class='btn btn-success fa fa-info' onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
         console.log(name);
         //MARKER

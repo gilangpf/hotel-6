@@ -405,31 +405,6 @@
                         </ul>
                       </li>
 
-                      <!-- Pencarian berdasarkan Harga Kamar -->
-                      <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
-                        <ul class="sub">
-                          <li style="margin-top:10px">
-                            <span style="background: none;color: white">Minimum Price</span>
-                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmin">
-                              <option value=""> - </option>
-                              <option value="30000">Rp. 30.000,-</option>
-                              <option value="100000">Rp. 100.000,-</option>
-                              <option value="500000">Rp. 500.000,-</option>
-                              <option value="1000000">Rp. 1.000.000,-</option>
-                            </select>
-                            <span style="background: none;color: white"> Maximum Price</span>
-                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmax">
-                              <option value=""> - </option>
-                              <option value="500000">Rp. 500.000,-</option>
-                              <option value="1000000">Rp. 1.000.000,-</option>
-                              <option value="2000000">Rp. 2.000.000,-</option>
-                              <option value="3000000">Rp. 3.000.000,-</option>
-                            </select>
-                          </li>                             
-                        </ul>
-                      </li>
-
                       <li><a onclick="init();_fs4()" style="cursor:pointer;background:none">Search</a></li>
                     </ul>
                   </li>

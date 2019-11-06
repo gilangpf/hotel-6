@@ -4,25 +4,21 @@ $category=$_GET['category'];//kategori tempat ibadah sekitar
 $tw=$_GET['tw'];			//wisata
 $tipe=$_GET['tipe'];		//tipe hotel
 
-$querysearch	="SELECT DISTINCT hotel.id as id, hotel.name as name, st_x(st_centroid(hotel.geom)) as lon, st_y(st_centroid(hotel.geom)) as lat";
+$querysearch	="SELECT DISTINCT hotel.id as id, hotel.name as name, st_x(st_centroid(hotel.geom)) as lon, st_y(st_centroid(hotel.geom)) as lat, tourism.id as id2, tourism.name as name2, st_x(st_centroid(tourism.geom)) as lon2, st_y(st_centroid(tourism.geom)) as lat2, worship_place.id as id3, worship_place.name as name3, st_x(st_centroid(worship_place.geom)) as lon3, st_y(st_centroid(worship_place.geom)) as lat3";
 
-if ($tw!="") {
-	$querysearch	.=", tourism.id as id2, tourism.name as name2, st_x(st_centroid(tourism.geom)) as lon2, st_y(st_centroid(tourism.geom)) as lat2";
-}
-
-$querysearch	.=" from hotel left join detail_room on hotel.id = detail_room.id_hotel left join room on room.id=detail_room.id_room left join hotel_type on hotel.id_type=hotel_type.id, tourism where ";
+$querysearch	.=" from hotel left join hotel_type on hotel.id_type=hotel_type.id, tourism where ";
 if ($tw!="") {
 	$querysearch	.="tourism.id = '$tw' and st_distancesphere(hotel.geom, tourism.geom) <= 300 ";
 }
-if($tw!=""&&$min!=""){
+if($tw!=""&&$category!=""){
 	$querysearch	.="and ";
 }
-if($min!=""){
-	$querysearch	.="room.price >= $min and room.price <= $max "; 
+if($category!=""){
+	$querysearch	.="category_worship_place.id = $category and st_distancesphere(hotel.geom, worship_place.geom) <= 300 "; 
 }
 if ($tw!=""&&$tipe!="") {
 	$querysearch	.="and ";
-}else if($min!=""&&$tipe!=""){
+}else if($category!=""&&$tipe!=""){
 	$querysearch	.="and ";
 }
 if ($tipe!="") {
