@@ -18,7 +18,7 @@
                       <ul class="treeview-menu">
                         <!-- <li style="margin-top:10px"><input id="inputradius" type="range" name="inputradius" data-highlight="true" min="1" max="10" value="1"></li>                             
                         <li><a onclick="init();hotel_sekitar_user();" style="cursor:pointer;background:none">Search</a></li> -->
-                         <div class=" form-group" style="color: black;font-size:10pt;" > <!-- <br> -->
+                         <div class=" form-group" style="color: black;font-size:8pt;" > <!-- <br> -->
                           <!-- <label>Based On Radius</label><br> -->
                           <label for="inputradius" style="font-size: 10pt";>Radius : </label>
                           <label  id="nilai"  style="font-size: 10pt";>0</label> m
@@ -70,7 +70,7 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
                                 }
                               ?>
                             </select>
@@ -93,7 +93,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: black;font-size:10pt"> Minimum Price</span>
+                            <span style="background: none;color: black;font-size:8pt"> Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -101,7 +101,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: black;font-size:10pt"> Maximum Price</span>
+                            <span style="background: none;color: black;font-size:8pt"> Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -116,7 +116,7 @@
                       <li class="sub">
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Facility</a>
                         <ul class="sub">
-                          <li style="margin-top:10px;font-size: 10">
+                          <li style="margin-top:10px">
                             <!-- <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="select_facility"> -->
                               <!-- <option value=""> - </option> -->
                               <?php                      
@@ -127,8 +127,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    // echo "<option value='$id'>$name</option>";
-                                    echo "<input type='checkbox' name='fs1_fas' id='fs1_fas' value='$id'>$name</input><br>";
+                                    // echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    echo "<input type='checkbox' name='fs1_fas' id='fs1_fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             <!-- </select> -->
@@ -150,8 +150,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -184,8 +184,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -207,8 +207,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    // echo "<option value='$id'>$name</option>";
-                                    echo "<input type='checkbox' name='fs2_fas' id='fs2_fas' value='$id'>$name</input><br>";
+                                    // echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    echo "<input type='checkbox' name='fs2_fas' id='fs2_fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             <!-- </select> -->
@@ -230,8 +230,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -264,8 +264,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -288,8 +288,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -302,7 +302,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: black;font-size:10pt">Minimum Price</span>
+                            <span style="background: none;color: black;font-size:8pt">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -310,7 +310,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: black;font-size:10pt">Maximum Price</span>
+                            <span style="background: none;color: black;font-size:8pt">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -348,8 +348,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -372,8 +372,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -396,8 +396,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -431,8 +431,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['product'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -455,8 +455,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['product'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -479,8 +479,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -506,7 +506,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: black;font-size:10pt">Minimum Price</span>
+                            <span style="background: none;color: black;font-size:8pt">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr1_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -514,7 +514,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: black;font-size:10pt">Maximum Price</span>
+                            <span style="background: none;color: black;font-size:8pt">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr1_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -541,8 +541,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    // echo "<option value='$id'>$name</option>";
-                                    echo "<input type='checkbox' name='fr1_fas' id='fr1_fas' value='$id'>$name</input><br>";
+                                    // echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    echo "<input type='checkbox' name='fr1_fas' id='fr1_fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             <!-- </select> -->
@@ -565,8 +565,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['destination'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -600,8 +600,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -614,7 +614,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: black;font-size:10pt">Minimum Price</span>
+                            <span style="background: none;color: black;font-size:8pt">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -622,7 +622,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: black;font-size:10pt">Maximum Price</span>
+                            <span style="background: none;color: black;font-size:8pt">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -649,8 +649,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['destination'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -685,8 +685,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['product'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -709,8 +709,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -733,8 +733,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['destination'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -768,8 +768,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -792,8 +792,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -816,8 +816,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    // echo "<option value='$id'>$name</option>";
-                                    echo "<input type='checkbox' name='fr4_fas' id='fr4_fas' value='$id'>$name</input><br>";
+                                    // echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    echo "<input type='checkbox' name='fr4_fas' id='fr4_fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             <!-- </select> -->
@@ -851,8 +851,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['product'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
@@ -875,8 +875,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['name'];
-                                    // echo "<option value='$id'>$name</option>";
-                                    echo "<input type='checkbox' name='fr5_fas' id='fr5_fas' value='$id'>$name</input><br>";
+                                    // echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    echo "<input type='checkbox' name='fr5_fas' id='fr5_fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             <!-- </select> -->
@@ -899,8 +899,8 @@
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
                                     $name=$baris['destination'];
-                                    echo "<option value='$id'>$name</option>";
-                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                    echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
                               ?>
                             </select>
