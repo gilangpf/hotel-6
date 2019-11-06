@@ -81,19 +81,19 @@
                     </ul>
                   </li>
 
-                  <!-- Fungsional Salsa 1 (Hotel -> Harga Kamar + Fasilitas + Tipe Hotel-->
+                  <!-- Fungsional Salsa 1 (Hotel -> Harga Kamar + Fasilitas + Tipe Hotel) -->
                   <li class="sub-menu">
                     <a href="javascript:;">
                       <i class="fa fa-search"></i>
-                      <span>Fungsional Salsa 1</span>
+                      <span>Fungsional By Salsa 1</span>
                     </a>
                     <ul class="sub">
                       <!-- Pencarian berdasarkan Harga Kamar -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Harga Kamar</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white">Harga Minimum</span>
+                            <span style="background: none;color: white"> Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -101,7 +101,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: white">Harga Maximum</span>
+                            <span style="background: none;color: white"> Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -114,7 +114,7 @@
                       </li>
                       <!-- Pencarian berdasarkan Fasilitas -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Fasilitas</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Facility</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
                             <!-- <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="select_facility"> -->
@@ -162,40 +162,39 @@
                     </ul>
                   </li>
 
-                  <!-- Fungsional Salsa 1 (Hotel -> Harga Kamar + Fasilitas + Tipe Hotel-->
+                  <!-- Fungsional Salsa 2 (Hotel -> Kategori Tempat Ibadah + Fasilitas + Tipe Hotel) -->
                   <li class="sub-menu">
                     <a href="javascript:;">
                       <i class="fa fa-search"></i>
-                      <span>Fungsional Salsa 1</span>
+                      <span>Fungsional By Salsa 2</span>
                     </a>
                     <ul class="sub">
-                      <!-- Pencarian berdasarkan Harga Kamar -->
+                      <!-- Pencarian berdasarkan Kategori Tempat Ibadah -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Harga Kamar</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Worship Place</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white">Harga Minimum</span>
-                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmin">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs2_category">
                               <option value=""> - </option>
-                              <option value="30000">Rp. 30.000,-</option>
-                              <option value="100000">Rp. 100.000,-</option>
-                              <option value="500000">Rp. 500.000,-</option>
-                              <option value="1000000">Rp. 1.000.000,-</option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM category_worship_place"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
                             </select>
-                            <span style="background: none;color: white">Harga Maximum</span>
-                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_hmax">
-                              <option value=""> - </option>
-                              <option value="500000">Rp. 500.000,-</option>
-                              <option value="1000000">Rp. 1.000.000,-</option>
-                              <option value="2000000">Rp. 2.000.000,-</option>
-                              <option value="3000000">Rp. 3.000.000,-</option>
-                            </select>
-                          </li>                             
+                          </li>
                         </ul>
                       </li>
                       <!-- Pencarian berdasarkan Fasilitas -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Fasilitas</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Facility</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
                             <!-- <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="select_facility"> -->
@@ -209,7 +208,7 @@
                                     $id=$baris['id'];
                                     $name=$baris['name'];
                                     // echo "<option value='$id'>$name</option>";
-                                    echo "<input type='checkbox' name='fs1_fas' id='fs1_fas' value='$id'>$name</input><br>";
+                                    echo "<input type='checkbox' name='fs2_fas' id='fs2_fas' value='$id'>$name</input><br>";
                                 }
                               ?>
                             <!-- </select> -->
@@ -221,7 +220,7 @@
                         <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Type</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs1_type">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs2_type">
                               <option value=""> - </option>
                               <?php                      
                               include('../connect.php');    
@@ -239,7 +238,199 @@
                           </li>
                         </ul>
                       </li>
-                      <li><a onclick="init();_fs1()" style="cursor:pointer;background:none">Search</a></li>
+                      <li><a onclick="init();_fs2()" style="cursor:pointer;background:none">Search</a></li>
+                    </ul>
+                  </li>
+
+                  <!-- Fungsional Salsa 3 (Hotel -> Tempat Wisata + Tipe Hotel + Harga Kamar)-->
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                      <i class="fa fa-search"></i>
+                      <span>Fungsional By Salsa 3</span>
+                    </a>
+                    <ul class="sub">
+                      <!-- Pencarian berdasarkan Produk Souvenir -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Tourism</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_wisata">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM tourism"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Tipe Hotel -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Type</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_type">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM hotel_type"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Harga Kamar -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <span style="background: none;color: white">Minimum Price</span>
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmin">
+                              <option value=""> - </option>
+                              <option value="30000">Rp. 30.000,-</option>
+                              <option value="100000">Rp. 100.000,-</option>
+                              <option value="500000">Rp. 500.000,-</option>
+                              <option value="1000000">Rp. 1.000.000,-</option>
+                            </select>
+                            <span style="background: none;color: white">Maximum Price</span>
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmax">
+                              <option value=""> - </option>
+                              <option value="500000">Rp. 500.000,-</option>
+                              <option value="1000000">Rp. 1.000.000,-</option>
+                              <option value="2000000">Rp. 2.000.000,-</option>
+                              <option value="3000000">Rp. 3.000.000,-</option>
+                            </select>
+                          </li>                             
+                        </ul>
+                      </li>
+
+                      <li><a onclick="init();_fs3()" style="cursor:pointer;background:none">Search</a></li>
+                    </ul>
+                  </li>
+
+                  <!-- Fungsional Salsa 4 (Hotel ->Kategori Tempat Ibadah + Tempat Wisata + Tipe Hotel)-->
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                      <i class="fa fa-search"></i>
+                      <span>Fungsional By Salsa 4</span>
+                    </a>
+                    <ul class="sub">
+                      <!-- Pencarian berdasarkan Kategori Tempat Ibadah -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Worship Place</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs4_category">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM category_worship_place"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Produk Souvenir -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Tourism</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs4_wisata">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM tourism"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Tipe Hotel -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Type</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs4_type">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM hotel_type"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Harga Kamar -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <span style="background: none;color: white">Minimum Price</span>
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmin">
+                              <option value=""> - </option>
+                              <option value="30000">Rp. 30.000,-</option>
+                              <option value="100000">Rp. 100.000,-</option>
+                              <option value="500000">Rp. 500.000,-</option>
+                              <option value="1000000">Rp. 1.000.000,-</option>
+                            </select>
+                            <span style="background: none;color: white"> Maximum Price</span>
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs3_hmax">
+                              <option value=""> - </option>
+                              <option value="500000">Rp. 500.000,-</option>
+                              <option value="1000000">Rp. 1.000.000,-</option>
+                              <option value="2000000">Rp. 2.000.000,-</option>
+                              <option value="3000000">Rp. 3.000.000,-</option>
+                            </select>
+                          </li>                             
+                        </ul>
+                      </li>
+
+                      <li><a onclick="init();_fs4()" style="cursor:pointer;background:none">Search</a></li>
                     </ul>
                   </li>
 
@@ -249,15 +440,15 @@
                   <li class="sub-menu">
                     <a href="javascript:;">
                       <i class="fa fa-search"></i>
-                      <span>Fungsional Reyca 1</span>
+                      <span>Fungsional By Reyca 1</span>
                     </a>
                     <ul class="sub">
                       <!-- Pencarian berdasarkan Harga Kamar -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Harga Kamar</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white">Harga Minimum</span>
+                            <span style="background: none;color: white">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr1_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -265,7 +456,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: white">Harga Maximum</span>
+                            <span style="background: none;color: white">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr1_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -279,7 +470,7 @@
 
                       <!-- Pencarian berdasarkan Fasilitas -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Fasilitas</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Facility</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
                             <!-- <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="select_facility"> -->
@@ -333,7 +524,7 @@
                   <li class="sub-menu">
                     <a href="javascript:;">
                       <i class="fa fa-search"></i>
-                      <span>Fungsional Reyca 2</span>
+                      <span>Fungsional By Reyca 2</span>
                     </a>
                     <ul class="sub">
                       <!-- Pencarian berdasarkan Tipe Hotel -->
@@ -362,10 +553,10 @@
 
                       <!-- Pencarian berdasarkan Harga Kamar -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Harga Kamar</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Room Price</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <span style="background: none;color: white">Harga Minimum</span>
+                            <span style="background: none;color: white">Minimum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_hmin">
                               <option value=""> - </option>
                               <option value="30000">Rp. 30.000,-</option>
@@ -373,7 +564,7 @@
                               <option value="500000">Rp. 500.000,-</option>
                               <option value="1000000">Rp. 1.000.000,-</option>
                             </select>
-                            <span style="background: none;color: white">Harga Maximum</span>
+                            <span style="background: none;color: white">Maximum Price</span>
                             <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_hmax">
                               <option value=""> - </option>
                               <option value="500000">Rp. 500.000,-</option>
@@ -413,6 +604,257 @@
 
                     </ul>
                   </li>
+
+                  <!-- Fungsional Reyca 3 (Hotel -> Produk Souvenir + Tipe Hotel + Destinasi)-->
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                      <i class="fa fa-search"></i>
+                      <span>Fungsional By Reyca 3</span>
+                    </a>
+                    <ul class="sub">
+                      <!-- Pencarian berdasarkan Produk Souvenir -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Souvenir</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr3_souvenir">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, product FROM product_souvenir"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['product'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Tipe Hotel -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Type</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr3_type">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM hotel_type"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Destinasi Angkot -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Destination</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr3_destinasi">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, destination FROM angkot"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['destination'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li><a onclick="init();_fr3()" style="cursor:pointer;background:none">Search</a></li>
+                    </ul>
+                  </li>
+
+                  <!-- Fungsional Reyca 4 (Hotel -> Produk Kuliner + Tipe Hotel + Fasilitas)-->
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                      <i class="fa fa-search"></i>
+                      <span>Fungsional By Reyca 4</span>
+                    </a>
+                    <ul class="sub">
+                      <!-- Pencarian berdasarkan Produk Kuliner -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By KCulinary</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr4_kuliner">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM culinary"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Tipe Hotel -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Type</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr4_type">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM hotel_type"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Fasilitas -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Facility</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <!-- <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="select_facility"> -->
+                              <!-- <option value=""> - </option> -->
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM facility_hotel"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    // echo "<option value='$id'>$name</option>";
+                                    echo "<input type='checkbox' name='fr4_fas' id='fr4_fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            <!-- </select> -->
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li><a onclick="init();_fr4()" style="cursor:pointer;background:none">Search</a></li>
+                    </ul>
+                  </li>
+
+                  <!-- Fungsional Reyca 5 (Hotel -> Produk UMKM + Fasilitas + Destinasi)-->
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                      <i class="fa fa-search"></i>
+                      <span>Fungsional Reyca 5</span>
+                    </a>
+                    <ul class="sub">
+                      <!-- Pencarian berdasarkan Produk Kuliner -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Small Industry</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr5_ik">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, product FROM product_small_industry"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['product'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Fasilitas -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Facility</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <!-- <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="select_facility"> -->
+                              <!-- <option value=""> - </option> -->
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM facility_hotel"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    // echo "<option value='$id'>$name</option>";
+                                    echo "<input type='checkbox' name='fr5_fas' id='fr5_fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            <!-- </select> -->
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Destinasi Angkot -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Destination</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr5_destinasi">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, destination FROM angkot"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['destination'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li><a onclick="init();_fr5()" style="cursor:pointer;background:none">Search</a></li>
+                    </ul>
+                  </li>
+
+                  <!-- --------------------------------------------------------------------- -->
 
                   <!-- Rekomendasi -->
                   <li class="sub">
