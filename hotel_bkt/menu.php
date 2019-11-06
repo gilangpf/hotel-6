@@ -409,6 +409,89 @@
                     </ul>
                   </li>
 
+                  <!-- Fungsional Salsa 5 (Hotel ->Produk UMKM + Produk Souvenir + Tipe Hotel)-->
+                  <li class="sub-menu">
+                    <a href="javascript:;">
+                      <i class="fa fa-search"></i>
+                      <span>Fungsional By Salsa 5</span>
+                    </a>
+                    <ul class="sub">
+                      <!-- Pencarian berdasarkan Produk UMKM -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Small Industries</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs5_si">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, product FROM product_small_industry"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['product'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Produk Souvenir -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Sovenir</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs5_sou">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, product FROM product_souvenir"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['product'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <!-- Pencarian berdasarkan Tipe Hotel -->
+                      <li class="sub">
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Type</a>
+                        <ul class="sub">
+                          <li style="margin-top:10px">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fs5_type">
+                              <option value=""> - </option>
+                              <?php                      
+                              include('../connect.php');    
+                              $querysearch="SELECT id, name FROM hotel_type"; 
+                              $hasil=pg_query($querysearch);
+
+                                while($baris = pg_fetch_array($hasil)){
+                                    $id=$baris['id'];
+                                    $name=$baris['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // echo "<input type='checkbox' name='fas' id='fas' value='$id'>$name</input><br>";
+                                }
+                              ?>
+                            </select>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li><a onclick="init();_fs5()" style="cursor:pointer;background:none">Search</a></li>
+                    </ul>
+                  </li>
+
                   <!-- --------------------------------------------------------------------- -->
 
                   <!-- Fungsional Reyca 1 (Hotel -> Harga Kamar + Fasilitas + Destinasi) -->

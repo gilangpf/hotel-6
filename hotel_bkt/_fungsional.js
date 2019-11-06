@@ -238,17 +238,106 @@ function _fs4(){
           });
         markersDua.push(marker);
         klikInfoWindow(id,marker);
-        //MARKER souvenir
-        centerSou = new google.maps.LatLng(lat2, lng2);
+        //MARKER tourism
+        centerOW = new google.maps.LatLng(lat2, lng2);
         map.setZoom(16);  
         var marker2 = new google.maps.Marker({
-          position: centerSou,              
+          position: centerOW,              
           icon:'icon/marker_tw.png',
           animation: google.maps.Animation.DROP,
           map: map
           });
+        markersDua.push(marker2);
+        klikInfoWindowOW(id2,marker2);
+        //MARKER Mes
+        centerMes = new google.maps.LatLng(lat3, lng3);
+        map.setZoom(16);  
+        var marker3 = new google.maps.Marker({
+          position: centerMes,              
+          icon:'icon/marker_masjid.png',
+          animation: google.maps.Animation.DROP,
+          map: map
+          });
+        markersDua.push(marker3);
+        klikInfoWindowMes(id3,marker3);
+      }//end for               
+  }});//end ajax 
+}
+
+function _fs5(){
+  hapus_menu();
+  hapus_Semua();
+
+  var x = document.getElementById('fs5_si').value;
+  var y = document.getElementById('fs5_sou').value;
+  var z = document.getElementById('fs5_type').value;
+  document.getElementById('judul_table').innerHTML="Fungsional Baru";
+
+  if (y ==""||x == ""||z == "") {          
+    document.getElementById('modal_title').innerHTML="Info";
+    document.getElementById('modal_body').innerHTML="Silahkan isi form terlebih dahulu";
+    $('#myModal').modal('show'); 
+    return;
+  } else {
+    $("#view_kanan_table").show();
+    $('#kanan_table').empty();            
+  }
+
+  $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
+  console.log(server+'_fs5.php?si='+x+'&sou='+y+'&tipe='+z);
+  $.ajax({url: server+'_fs5.php?si='+x+'&sou='+y+'&tipe='+z, data: "", dataType: 'json', success: function(rows){ 
+    if(rows == null)
+    {
+      alert('Data Did Not Exist !');
+    }
+      for (var i in rows){ 
+        var row = rows[i];
+        var id = row.id;
+        var name = row.name;
+        var lng = row.lng;
+        var lat = row.lat;
+        var id2 = row.id2;
+        var lng2 = row.lng2;
+        var lat2 = row.lat2;
+        var id3 = row.id3;
+        var lng3 = row.lng3;
+        var lat3 = row.lat3;
+        $('#kanan_table').append("<tr><td>"+name+"</td><td><a role='button' class='btn btn-success fa fa-info' onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
+        console.log(name);
+        //MARKER
+        centerBaru = new google.maps.LatLng(lat, lng);
+        map.setCenter(centerBaru);
+        map.setZoom(16);  
+        var marker = new google.maps.Marker({
+          position: centerBaru,              
+          icon:'icon/marker_hotel.png',
+          animation: google.maps.Animation.DROP,
+          map: map
+          });
         markersDua.push(marker);
+        klikInfoWindow(id,marker);
+        //MARKER tourism
+        centerOW = new google.maps.LatLng(lat2, lng2);
+        map.setZoom(16);  
+        var marker2 = new google.maps.Marker({
+          position: centerOW,              
+          icon:'icon/marker_oo.png',
+          animation: google.maps.Animation.DROP,
+          map: map
+          });
+        markersDua.push(marker2);
         klikInfoWindowSou(id2,marker2);
+        //MARKER Mes
+        centerMes = new google.maps.LatLng(lat3, lng3);
+        map.setZoom(16);  
+        var marker3 = new google.maps.Marker({
+          position: centerMes,              
+          icon:'icon/marker_industri.png',
+          animation: google.maps.Animation.DROP,
+          map: map
+          });
+        markersDua.push(marker3);
+        klikInfoWindowSM(id3,marker3);
       }//end for               
   }});//end ajax 
 }
