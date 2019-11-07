@@ -653,9 +653,9 @@ function hideLegenda() {
 
           $('#kanan_table').empty();
           $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
-          // console.log(server+'/_data_hotel.php');
+          // console.log(server+'_data_hotel.php');
           $.ajax({ 
-          url: server+'/_data_hotel.php', data: "", dataType: 'json', success: function(rows) 
+          url: server+'_data_hotel.php', data: "", dataType: 'json', success: function(rows) 
           { 
               for (var i in rows){ 
                 var row = rows[i];
@@ -939,7 +939,7 @@ function hideLegenda() {
       function td_hotel_angkot(id_angkot){ // HOTEL SEKITAR ANGKOT
         $('#table_kanan_hotel').empty();
         $('#table_kanan_hotel').append("<tr><th class='centered'>Hotel Name</th><th class='centered'>Action</th></tr>");  
-        $.ajax({url: server+'/_angkot_hotel.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
+        $.ajax({url: server+'_angkot_hotel.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
           for (var i in rows){ 
             var row = rows[i];
             var id = row.id;
@@ -1098,7 +1098,7 @@ function hideLegenda() {
       function td_kuliner_angkot(id_angkot){ //KULINER SEKITAR ANGKOT
         $('#table_kanan_culinary').empty();
         $('#table_kanan_culinary').append("<tr><th class='centered'>Culinary Name</th><th class='centered'>Action</th></tr>");
-        $.ajax({url: server+'/_angkot_culinary_place.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
+        $.ajax({url: server+'_angkot_culinary_place.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
           for (var i in rows){ 
             var row = rows[i];
             var id = row.id;
@@ -1159,7 +1159,7 @@ function hideLegenda() {
       function td_masjid_angkot(id_angkot){ // MASJID SEKITAR ANGKOT
         $('#table_kanan_worship').empty();
         $('#table_kanan_worship').append("<tr><th class='centered'>Worship Name</th><th class='centered'>Action</th></tr>");
-        $.ajax({url: server+'/_angkot_worship_place.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
+        $.ajax({url: server+'_angkot_worship_place.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
           for (var i in rows){ 
               var row = rows[i];
               var id = row.id;
@@ -1224,7 +1224,7 @@ function hideLegenda() {
       function td_oo_Angkot(id_angkot){ // OLEH-OLEH SEKITAR ANGKOT
         $('#table_kanan_souvenir').empty();
         $('#table_kanan_souvenir').append("<tr><th class='centered'>Souvenir Name</th><th class='centered'>Action</th></tr>");
-        $.ajax({url: server+'/_angkot_souvenir.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
+        $.ajax({url: server+'_angkot_souvenir.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
           for (var i in rows){ 
               var row = rows[i];
               var id = row.id;
@@ -1282,7 +1282,7 @@ function hideLegenda() {
       function td_tw_angkot(id_angkot){ // TOURISM SEKITAR ANGKOT
         $('#table_kanan_tourism').empty();
         $('#table_kanan_tourism').append("<tr><th class='centered'>Tourism Name</th><th class='centered'>Action</th></tr>");
-        $.ajax({url: server+'/_angkot_tourism.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
+        $.ajax({url: server+'_angkot_tourism.php?id_angkot='+id_angkot, data: "", dataType: 'json', success: function(rows){ 
           for (var i in rows){ 
               var row = rows[i];
               var id = row.id;
@@ -1925,7 +1925,7 @@ function hideLegenda() {
         function listRekom(){
           $('#hotel_rekom').empty();
           $.ajax({ 
-          url: server+'/_data_tourism.php', data: "", dataType: 'json', success: function(rows) 
+          url: server+'_data_tourism.php', data: "", dataType: 'json', success: function(rows) 
             { 
               for (var i in rows) 
                 { 
@@ -1993,7 +1993,7 @@ function hideLegenda() {
 
         text = text + '&total=' +j;
         console.log(text);
-        console.log(server+'/_rekom2.php'+text);
+        console.log(server+'_rekom2.php'+text);
         if (j==0) {
           alert("Make a choice of tourist attractions first");
         } else {
