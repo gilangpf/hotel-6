@@ -587,8 +587,8 @@ function _fr5(){
 
   var x = document.getElementById('fr5_ik').value;
   var y = [];
-  for(i=0;i<$("input[name=fr4_fas]:checked").length;i++){
-    y.push($("input[name=fr4_fas]:checked")[i].value);
+  for(i=0;i<$("input[name=fr5_fas]:checked").length;i++){
+    y.push($("input[name=fr5_fas]:checked")[i].value);
   }
   var z = document.getElementById('fr5_destinasi').value;
   document.getElementById('judul_table').innerHTML="Fungsional Baru";
