@@ -914,6 +914,11 @@
 
                   <!-- --------------------------------------------------------------------- -->
 
+                  <!-- List Gallery -->
+                  <li class="sub">
+                      <a onclick="init();listGallery();" style="cursor:pointer;background:none"><i class="fa fa-image"></i>List Gallery</a>
+                  </li>
+
                   <!-- Rekomendasi -->
                   <li class="sub">
                       <a onclick="init();menu_rekom();" style="cursor:pointer;background:none">Recomendation</a>

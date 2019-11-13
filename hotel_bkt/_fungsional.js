@@ -648,3 +648,43 @@ function _fr5(){
       }//end for               
   }});//end ajax 
 }
+
+function listGallery(){
+  hapus_menu();
+  $('#view_kanan_table').show();
+  document.getElementById('judul_table').innerHTML="List Galley";
+
+  $('#kanan_table').empty();
+  $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
+  // console.log(server+'_data_hotel.php');
+  $.ajax({ 
+  url: server+'_gallery.php', data: "", dataType: 'json', success: function(rows) 
+  { 
+    for (var i in rows){ 
+      var row = rows[i];
+      var id = row.id;
+      var name = row.name;
+      var latitude=row.lat;
+      var longitude = row.lng;
+      var img = row.img;
+      console.log(id + latitude + longitude + img);
+      $('#kanan_table').append("<tr><td><img style='max-height:100px;' src='../_foto/"+img+"'><br><center>"+name+"</center></td><td><a role='button' class='btn btn-success fa fa-info' title='info'  onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
+
+      //MARKER
+      centerBaru = new google.maps.LatLng(latitude, longitude);
+      map.setCenter(centerBaru);
+        
+      map.setZoom(16); 
+      var marker = new google.maps.Marker({
+        position: centerBaru,              
+        icon:'icon/marker_hotel.png',
+        animation: google.maps.Animation.DROP,
+        map: map
+        });
+      markersDua.push(marker);
+
+      klikInfoWindow(id,marker);
+      }    
+    } 
+  });  
+}
