@@ -272,10 +272,11 @@ function hideLegenda() {
       *********************************************************************************************************************************************************** */   
 
         function route_angkot_1(id,color){
-          console.log("jalan");      
-          console.log(color);      
+          console.log(id);
+          console.log(color);
+          console.log(server+'tampilkanrute.php?id_angkot='+id);
               ja = new google.maps.Data();
-              ja.loadGeoJson('tampilkanrute.php?id_angkot='+id);
+              ja.loadGeoJson(server+'tampilkanrute.php?id_angkot='+id);
               ja.setStyle(function(feature){
               return({
                   fillColor: 'yellow',

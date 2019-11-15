@@ -13,21 +13,23 @@ while($baris = pg_fetch_array($hasil))
 		$query1="SELECT souvenir.id as id2, st_x(st_centroid(souvenir.geom)) as lon2, st_y(st_centroid(souvenir.geom)) as lat2 from souvenir, hotel where st_distancesphere(hotel.geom, souvenir.geom) <= 300 and hotel.id='".$baris['id']."'";
 
 		$query2="SELECT small_industry.id as id3, st_x(st_centroid(small_industry.geom)) as lon3, st_y(st_centroid(small_industry.geom)) as lat3 from small_industry, hotel where st_distancesphere(hotel.geom, small_industry.geom) <= 300 and hotel.id='".$baris['id']."'";
-		$res1=pg_query($query1);
-		$row1=pg_fetch_array($res1);
-		$res2=pg_query($query2);
-		$row2=pg_fetch_array($res2);
 
 		$id=$baris['id'];
 		$name=$baris['name'];
 		$lat=$baris['lat'];
 		$lng=$baris['lon'];
+		$res1=pg_query($query1);
+		while($row1=pg_fetch_array($res1)){
 		$id2=$row1['id2'];
 		$lat2=$row1['lat2'];
 		$lng2=$row1['lon2'];
+		}
+		$res2=pg_query($query2);
+		while($row2=pg_fetch_array($res2)){
 		$id3=$row2['id3'];
 		$lat3=$row2['lat3'];
 		$lng3=$row2['lon3'];
+		}
 		$dataarray[]=array('id'=>$id,'name'=>$name, 'lng'=>$lng, 'lat'=>$lat, 'id2'=>$id2,'lng2'=>$lng2, 'lat2'=>$lat2, 'id3'=>$id3,'lng3'=>$lng3, 'lat3'=>$lat3);
 	}
 echo json_encode ($dataarray);

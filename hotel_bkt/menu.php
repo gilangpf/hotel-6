@@ -578,7 +578,7 @@
                     </ul>
                   </li>
 
-                  <!-- Fungsional Reyca 2 (Hotel -> Destinasi + Harga Kamar + Tipe Hotel) -->
+                  <!-- Fungsional Reyca 2 (Hotel -> Tipe Wisata + Harga Kamar + Tipe Hotel) -->
                   <li class="sub-menu">
                     <a href="javascript:;">
                       <i class="fa fa-search"></i>
@@ -634,21 +634,21 @@
                         </ul>
                       </li>
 
-                      <!-- Pencarian berdasarkan Destinasi Angkot -->
+                      <!-- Pencarian berdasarkan Tipe Wisata -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Destination</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Tourism Type</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_destinasi">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr2_toty">
                               <option value=""> - </option>
                               <?php                      
                               include('../connect.php');    
-                              $querysearch="SELECT id, destination FROM angkot"; 
+                              $querysearch="SELECT id, name FROM tourism_type"; 
                               $hasil=pg_query($querysearch);
 
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
-                                    $name=$baris['destination'];
+                                    $name=$baris['name'];
                                     echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
                                     // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
@@ -663,7 +663,7 @@
                     </ul>
                   </li>
 
-                  <!-- Fungsional Reyca 3 (Hotel -> Produk Souvenir + Tipe Hotel + Destinasi)-->
+                  <!-- Fungsional Reyca 3 (Hotel -> Produk Souvenir + Tipe Hotel + Tipe Industri)-->
                   <li class="sub-menu">
                     <a href="javascript:;">
                       <i class="fa fa-search"></i>
@@ -720,19 +720,19 @@
 
                       <!-- Pencarian berdasarkan Destinasi Angkot -->
                       <li class="sub">
-                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Destination</a>
+                        <a style="cursor:pointer;background:none"><i class="fa fa-search"></i> By Industry Type</a>
                         <ul class="sub">
                           <li style="margin-top:10px">
-                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr3_destinasi">
+                            <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="fr3_intyp">
                               <option value=""> - </option>
                               <?php                      
                               include('../connect.php');    
-                              $querysearch="SELECT id, destination FROM angkot"; 
+                              $querysearch="SELECT id, name FROM industry_type"; 
                               $hasil=pg_query($querysearch);
 
                                 while($baris = pg_fetch_array($hasil)){
                                     $id=$baris['id'];
-                                    $name=$baris['destination'];
+                                    $name=$baris['name'];
                                     echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
                                     // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
                                 }
@@ -917,6 +917,31 @@
                   <!-- List Gallery -->
                   <li class="sub">
                       <a onclick="init();listGallery();" style="cursor:pointer;background:none"><i class="fa fa-image"></i>List Gallery</a>
+                  </li>
+
+                  <!-- Gellery by Hotel Type -->
+                  <li class="sub">
+                      <a onclick="" style="cursor:pointer;background:none"><i class="fa fa-image"></i>Gallery by Hotel Type</a>
+                      <ul class="treeview-menu">
+                        <li>  
+                          <select class="form-control kota text-center" style="width:100%;margin-top:10px" id="gal_ht">
+                            <option value=""> - </option>
+                            <?php                      
+                            include('../connect.php');    
+                            $querysearch="SELECT id, name FROM hotel_type"; 
+                            $hasil=pg_query($querysearch);
+
+                              while($baris = pg_fetch_array($hasil)){
+                                  $id=$baris['id'];
+                                  $name=$baris['name'];
+                                  echo "<option value='$id'><span style='font-size:8pt'>$name</span></option>";
+                                  // echo "<input type='checkbox' name='fas' id='fas' value='$id'><span style='font-size:8pt'>$name</span></input><br>";
+                              }
+                            ?>
+                          </select>
+                        </li>
+                        <li><a onclick="init();galleryType()" style="cursor:pointer;background:none">Search</a></li>
+                      </ul>                     
                   </li>
 
                   <!-- Rekomendasi -->

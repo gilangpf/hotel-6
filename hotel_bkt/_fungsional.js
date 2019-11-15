@@ -346,6 +346,7 @@ function _fr1(){
   hapus_menu();
   hapus_Semua();
 
+
   var y = [];
   for(i=0;i<$("input[name=fr1_fas]:checked").length;i++){
     y.push($("input[name=fr1_fas]:checked")[i].value);
@@ -375,9 +376,11 @@ function _fr1(){
       for (var i in rows){ 
         var row = rows[i];
         var id = row.id;
+        var aid = row.aid;
         var name = row.name;
         var lng = row.lng;
         var lat = row.lat;
+        var color = row.color;
         $('#kanan_table').append("<tr><td>"+name+"</td><td><a role='button' class='btn btn-success fa fa-info' onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
         console.log(name);
         //MARKER
@@ -392,6 +395,7 @@ function _fr1(){
           });
         markersDua.push(marker);
         klikInfoWindow(id,marker);
+        route_angkot_1(z,color);
       }//end for               
   }});//end ajax 
 }
@@ -402,7 +406,7 @@ function _fr2(){
 
 
   var y = document.getElementById('fr2_type').value;
-  var z = document.getElementById('fr2_destinasi').value;
+  var z = document.getElementById('fr2_toty').value;
   var min = document.getElementById('fr2_hmin').value;
   var max = document.getElementById('fr2_hmax').value;
   document.getElementById('judul_table').innerHTML="Fungsional Baru";
@@ -418,8 +422,8 @@ function _fr2(){
   }
 
   $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
-  console.log(server+'_fr2.php?min='+min+'&max='+max+'&tipe='+y+'&destinasi='+z);
-  $.ajax({url: server+'_fr2.php?min='+min+'&max='+max+'&tipe='+y+'&destinasi='+z, data: "", dataType: 'json', success: function(rows){ 
+  console.log(server+'_fr2.php?min='+min+'&max='+max+'&tipe='+y+'&toty='+z);
+  $.ajax({url: server+'_fr2.php?min='+min+'&max='+max+'&tipe='+y+'&toty='+z, data: "", dataType: 'json', success: function(rows){ 
     if(rows == null)
     {
       alert('Data Did Not Exist !');
@@ -427,9 +431,12 @@ function _fr2(){
       for (var i in rows){ 
         var row = rows[i];
         var id = row.id;
+        var id2 = row.id2;
         var name = row.name;
         var lng = row.lng;
         var lat = row.lat;
+        var lng2 = row.lng2;
+        var lat2 = row.lat2;
         $('#kanan_table').append("<tr><td>"+name+"</td><td><a role='button' class='btn btn-success fa fa-info' onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
         console.log(name);
         //MARKER
@@ -444,6 +451,19 @@ function _fr2(){
           });
         markersDua.push(marker);
         klikInfoWindow(id,marker);
+        // Objek Wisata
+        centerDua = new google.maps.LatLng(lat2, lng2);
+        map.setCenter(centerDua);
+        map.setZoom(16);  
+        var markerOW = new google.maps.Marker({
+          position: centerDua,              
+          icon:'icon/marker_tw.png',
+          animation: google.maps.Animation.DROP,
+          map: map
+          });
+        markersDua.push(markerOW);
+        klikInfoWindowOW(id2,markerOW);
+
       }//end for               
   }});//end ajax 
 }
@@ -454,7 +474,7 @@ function _fr3(){
 
   var x = document.getElementById('fr3_souvenir').value;
   var y = document.getElementById('fr3_type').value;
-  var z = document.getElementById('fr3_destinasi').value;
+  var z = document.getElementById('fr3_intyp').value;
   document.getElementById('judul_table').innerHTML="Fungsional Baru";
 
   if ((y =="")&&(z == "")&&(x == "")) {          
@@ -468,8 +488,8 @@ function _fr3(){
   }
 
   $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
-  console.log(server+'_fr3.php?sou='+x+'&tipe='+y+'&destinasi='+z);
-  $.ajax({url: server+'_fr3.php?sou='+x+'&tipe='+y+'&destinasi='+z, data: "", dataType: 'json', success: function(rows){ 
+  console.log(server+'_fr3.php?sou='+x+'&tipe='+y+'&intyp='+z);
+  $.ajax({url: server+'_fr3.php?sou='+x+'&tipe='+y+'&intyp='+z, data: "", dataType: 'json', success: function(rows){ 
     if(rows == null)
     {
       alert('Data Did Not Exist !');
@@ -481,9 +501,11 @@ function _fr3(){
         var lng = row.lng;
         var lat = row.lat;
         var id2 = row.id2;
-        var name2 = row.name2;
         var lng2 = row.lng2;
         var lat2 = row.lat2;
+        var id3 = row.id3;
+        var lng3 = row.lng3;
+        var lat3 = row.lat3;
         $('#kanan_table').append("<tr><td>"+name+"</td><td><a role='button' class='btn btn-success fa fa-info' onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
         console.log(name);
         //MARKER
@@ -507,8 +529,19 @@ function _fr3(){
           animation: google.maps.Animation.DROP,
           map: map
           });
-        markersDua.push(marker);
+        markersDua.push(marker2);
         klikInfoWindowSou(id2,marker2);
+        //MARKER Industri
+        centerIn = new google.maps.LatLng(lat3, lng3);
+        map.setZoom(16);  
+        var marker3 = new google.maps.Marker({
+          position: centerIn,
+          icon:'icon/ik.png',
+          animation: google.maps.Animation.DROP,
+          map: map
+          });
+        markersDua.push(marker3);
+        klikInfoWindowSM(id3,marker3);
       }//end for               
   }});//end ajax 
 }
@@ -620,6 +653,7 @@ function _fr5(){
         var name2 = row.name2;
         var lng2 = row.lng2;
         var lat2 = row.lat2;
+        var color = row.color;
         $('#kanan_table').append("<tr><td>"+name+"</td><td><a role='button' class='btn btn-success fa fa-info' onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
         console.log(name);
         //MARKER
@@ -645,6 +679,7 @@ function _fr5(){
           });
         markersDua.push(marker);
         klikInfoWindowSM(id2,marker2);
+        route_angkot_1(z,color);
       }//end for               
   }});//end ajax 
 }
@@ -652,7 +687,7 @@ function _fr5(){
 function listGallery(){
   hapus_menu();
   $('#view_kanan_table').show();
-  document.getElementById('judul_table').innerHTML="List Galley";
+  document.getElementById('judul_table').innerHTML="List Gallery";
 
   $('#kanan_table').empty();
   $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
@@ -668,6 +703,48 @@ function listGallery(){
       var longitude = row.lng;
       var img = row.img;
       console.log(id + latitude + longitude + img);
+      $('#kanan_table').append("<tr><td><img style='max-height:100px;' src='../_foto/"+img+"'><br><center>"+name+"</center></td><td><a role='button' class='btn btn-success fa fa-info' title='info'  onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
+
+      //MARKER
+      centerBaru = new google.maps.LatLng(latitude, longitude);
+      map.setCenter(centerBaru);
+        
+      map.setZoom(16); 
+      var marker = new google.maps.Marker({
+        position: centerBaru,              
+        icon:'icon/marker_hotel.png',
+        animation: google.maps.Animation.DROP,
+        map: map
+        });
+      markersDua.push(marker);
+
+      klikInfoWindow(id,marker);
+      }    
+    } 
+  });  
+}
+
+function galleryType(){
+  hapus_menu();
+
+  var x = document.getElementById('gal_ht').value;
+  $('#view_kanan_table').show();
+  document.getElementById('judul_table').innerHTML="List Gallery";
+
+  $('#kanan_table').empty();
+  $('#kanan_table').append("<tr><th class='centered'>Name</th><th class='centered' colspan='3'>Action</th></tr>");
+  console.log(server+'_gallery.php?tipe='+x);
+  $.ajax({ 
+  url: server+'_gallery.php?tipe='+x, data: "", dataType: 'json', success: function(rows) 
+  { 
+    for (var i in rows){ 
+      var row = rows[i];
+      var id = row.id;
+      var name = row.name;
+      var latitude=row.lat;
+      var longitude = row.lng;
+      var img = row.img;
+      // console.log(id + latitude + longitude + img);
       $('#kanan_table').append("<tr><td><img style='max-height:100px;' src='../_foto/"+img+"'><br><center>"+name+"</center></td><td><a role='button' class='btn btn-success fa fa-info' title='info'  onclick='data_hotel_1_info(\""+id+"\")'></a></td><td><a role='button' class='btn btn-danger fa fa-taxi' title='Angkot' onclick='angkot_sekitar(\""+id+"\")'></a></td></tr>");  
 
       //MARKER

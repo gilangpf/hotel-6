@@ -4,28 +4,12 @@ $culinary=$_GET['kul'];	//kategori tempat ibadah sekitar
 $fas=$_GET['fas']; //fasilitas
 $tipe=$_GET['tipe'];			//tipe hotel
 
-$querysearch	="SELECT DISTINCT hotel.id as id, hotel.name as name, st_x(st_centroid(hotel.geom)) as lon, st_y(st_centroid(hotel.geom)) as lat from hotel left join detail_room on hotel.id = detail_room.id_hotel left join detail_facility_hotel on detail_facility_hotel.id_hotel = hotel.id left join facility_hotel on detail_facility_hotel.id_facility = facility_hotel.id left join hotel_type on hotel.id_type=hotel_type.id, culinary_place left join detail_culinary on culinary_place.id=detail_culinary.id_culinary_place left join culinary on detail_culinary.id_culinary=culinary.id where ";
-if ($culinary!="") {
-	$querysearch	.="culinary.id = $culinary and st_distancesphere(hotel.geom, culinary_place.geom) <= 300 ";
-}
-if($culinary!=""&&$fas!=""){
-	$querysearch	.="and ";
-}
-if($fas!=""){
-	$querysearch	.="facility_hotel.id in ($fas) ";
-}
-if ($culinary!=""&&$tipe!="") {
-	$querysearch	.="and ";
-}else if($fas!=""&&$tipe!=""){
-	$querysearch	.="and ";
-}
-if ($tipe!="") {
-	$querysearch	.="hotel_type.id = '$tipe'";	
-}
+$querysearch	="SELECT DISTINCT hotel.id as id, hotel.name as name, st_x(st_centroid(hotel.geom)) as lon, st_y(st_centroid(hotel.geom)) as lat from hotel left join detail_room on hotel.id = detail_room.id_hotel left join detail_facility_hotel on detail_facility_hotel.id_hotel = hotel.id left join facility_hotel on detail_facility_hotel.id_facility = facility_hotel.id left join hotel_type on hotel.id_type=hotel_type.id, culinary_place left join detail_culinary on culinary_place.id=detail_culinary.id_culinary_place left join culinary on detail_culinary.id_culinary=culinary.id where culinary.id = $culinary and st_distancesphere(hotel.geom, culinary_place.geom) <= 300 and facility_hotel.id in ($fas) and hotel_type.id = '$tipe'";	
+
 $hasil=pg_query($querysearch);
 while($baris = pg_fetch_array($hasil))
 	{
-		$query="SELECT culinary_place.id as id2, culinary_place.name as name2, st_x(st_centroid(culinary_place.geom)) as lon2, st_y(st_centroid(culinary_place.geom)) as lat2 from hotel, culinary where st_distancesphere(hotel.geom, culinary.geom) <= 300 and hotel.id='".$baris['id']."'";
+		$query="SELECT culinary_place.id as id2, culinary_place.name as name2, st_x(st_centroid(culinary_place.geom)) as lon2, st_y(st_centroid(culinary_place.geom)) as lat2 from hotel, culinary_place where st_distancesphere(hotel.geom, culinary_place.geom) <= 300 and hotel.id='".$baris['id']."'";
 		$id=$baris['id'];
 		$name=$baris['name'];
 		$lat=$baris['lat'];

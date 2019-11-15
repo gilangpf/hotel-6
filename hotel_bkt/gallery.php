@@ -20,7 +20,7 @@ session_start();
     <link href="assets/css/style.css" rel="stylesheet">
     
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
     
     <!--  Slide -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -406,7 +406,8 @@ session_start();
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="html5gallery/html5gallery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="assets/js/fancybox/jquery.fancybox.js"></script>    
@@ -415,7 +416,6 @@ session_start();
     <script src="assets/js/jquery.sparkline.js"></script>
     <script src="_map.js" type="text/javascript"></script>
     <script src="assets/js/common-scripts.js"></script>
-    <script type="text/javascript" src="html5gallery/html5gallery.js"></script>
     
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
