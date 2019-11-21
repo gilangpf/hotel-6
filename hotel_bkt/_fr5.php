@@ -4,24 +4,8 @@ $ik=$_GET['ik'];	//kategori tempat ibadah sekitar
 $fas=$_GET['fas']; //fasilitas
 $destinasi=$_GET['destinasi'];			//destinasi hotel
 
-$querysearch	="SELECT DISTINCT hotel.id as id, hotel.name as name, angkot.route_color as color, st_x(st_centroid(hotel.geom)) as lon, st_y(st_centroid(hotel.geom)) as lat from hotel left join detail_hotel on detail_hotel.id_hotel=hotel.id left join angkot on detail_hotel.id_angkot=angkot.id left join detail_facility_hotel on detail_facility_hotel.id_hotel = hotel.id left join facility_hotel on detail_facility_hotel.id_facility = facility_hotel.id, small_industry left join detail_product_small_industry on small_industry.id=detail_product_small_industry.id_small_industry left join product_small_industry on detail_product_small_industry.id_product=product_small_industry.id where ";
-if ($ik!="") {
-	$querysearch	.="product_small_industry.id = $ik and st_distancesphere(hotel.geom, small_industry.geom) <= 300 ";
-}
-if($ik!=""&&$fas!=""){
-	$querysearch	.="and ";
-}
-if($fas!=""){
-	$querysearch	.="facility_hotel.id in ($fas) ";
-}
-if ($ik!=""&&$destinasi!="") {
-	$querysearch	.="and ";
-}else if($fas!=""&&$destinasi!=""){
-	$querysearch	.="and ";
-}
-if ($destinasi!="") {
-	$querysearch    .="angkot.id = '$destinasi'";  
-}
+$querysearch	="SELECT DISTINCT hotel.id as id, hotel.name as name, angkot.route_color as color, st_x(st_centroid(hotel.geom)) as lon, st_y(st_centroid(hotel.geom)) as lat from hotel left join detail_hotel on detail_hotel.id_hotel=hotel.id left join angkot on detail_hotel.id_angkot=angkot.id left join detail_facility_hotel on detail_facility_hotel.id_hotel = hotel.id left join facility_hotel on detail_facility_hotel.id_facility = facility_hotel.id, small_industry left join detail_product_small_industry on small_industry.id=detail_product_small_industry.id_small_industry left join product_small_industry on detail_product_small_industry.id_product=product_small_industry.id where product_small_industry.id = $ik and st_distancesphere(hotel.geom, small_industry.geom) <= 300 and facility_hotel.id in ($fas) and angkot.id = '$destinasi'";  
+
 $hasil=pg_query($querysearch);
 while($baris = pg_fetch_array($hasil))
 	{
